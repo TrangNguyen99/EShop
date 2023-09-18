@@ -1,5 +1,5 @@
 using ErrorOr;
-using EShop.Application.Common.Interfaces.Persistance;
+using EShop.Application.Common.Interfaces.Persistence;
 using EShop.Domain.Products;
 using MediatR;
 

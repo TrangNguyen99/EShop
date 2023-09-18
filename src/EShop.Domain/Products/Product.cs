@@ -5,6 +5,8 @@ namespace EShop.Domain.Products;
 
 public sealed class Product : AggregateRoot<ProductId, Guid>
 {
+    public const int MAX_NAME_LENGTH = 100;
+
     public string Name { get; private set; }
     public string Description { get; private set; }
 

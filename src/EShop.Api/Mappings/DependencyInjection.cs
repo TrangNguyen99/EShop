@@ -2,7 +2,7 @@ using System.Reflection;
 using Mapster;
 using MapsterMapper;
 
-namespace EShop.Api.Mapping;
+namespace EShop.Api.Mappings;
 
 public static class DependencyInjection
 {

@@ -1,6 +1,6 @@
 using EShop.Domain.Products;
 
-namespace EShop.Application.Common.Interfaces.Persistance;
+namespace EShop.Application.Common.Interfaces.Persistence;
 
 public interface IProductRepository
 {

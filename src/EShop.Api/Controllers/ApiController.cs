@@ -7,6 +7,8 @@ namespace EShop.Api.Controllers;
 [ApiController]
 public class ApiController : ControllerBase
 {
+    public const string HTTP_CONTEXT_ITEMS_ERROR = "error";
+
     protected IActionResult Problem(List<Error> errors)
     {
         if (errors.All(e => e.Type == ErrorType.Validation))
@@ -20,6 +22,8 @@ public class ApiController : ControllerBase
         }
 
         var firstError = errors.First();
+
+        HttpContext.Items[HTTP_CONTEXT_ITEMS_ERROR] = firstError;
 
         var statusCode = firstError.Type switch
         {

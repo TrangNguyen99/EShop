@@ -1,0 +1,32 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  eshopapi:
+    image: eshopapi
+    build:
+      context: .
+      dockerfile: EShop.Api/Dockerfile
+    environment:
+      - ConnectionStrings:Postgres=Host=eshopdb;Username=admin;Password=password123456;Database=EShop
+    ports:
+      - 5233:5233
+    depends_on:
+      - eshopdb
+    restart: always
+
+  eshopdb:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password123456
+      - POSTGRES_DB=EShop
+    ports:
+      - 5432:5432
+    volumes:
+      - eshop_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  eshop_data:

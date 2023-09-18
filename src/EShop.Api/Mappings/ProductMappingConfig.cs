@@ -3,7 +3,7 @@ using EShop.Contracts.Products;
 using EShop.Domain.Products;
 using Mapster;
 
-namespace EShop.Api.Mapping;
+namespace EShop.Api.Mappings;
 
 public class ProductMappingConfig : IRegister
 {
