@@ -1,5 +1,6 @@
 using EShop.Application.Common.Interfaces.Persistence;
 using EShop.Infrastructure.Persistence;
+using EShop.Infrastructure.Persistence.Interceptors;
 using EShop.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
     {
+        services.AddScoped<PublishDomainEventsInterceptor>();
+
         services.AddDbContext<EShopDbContext>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("Postgres"));
